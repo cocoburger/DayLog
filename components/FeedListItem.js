@@ -6,9 +6,7 @@ import {ko} from 'date-fns/locale';
 function formatDate(date) {
   const d = new Date(date);
   const now = Date.now();
-  console.log(now);
   const diff = (now - d.getTime()) / 1000; //초단위
-  console.log('diff : ', diff);
 
   if (diff < 60 * 1) {
     return '방금 전';
