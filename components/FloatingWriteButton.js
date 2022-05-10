@@ -11,12 +11,29 @@ function FloatingWriteButton({hidden}) {
   };
 
   const animation = useRef(new Animated.Value(0)).current;
-  useEffect(() => {
-    Animated.timing(animation, {
-      toValue: hidden ? 1 : 0,
-      useNativeDriver: true,
-    }).start();
-  }, [animation, hidden]);
+  // useEffect(() => {
+  //   Animated.timing(animation, {
+  //     toValue: hidden ? 1 : 0,
+  //     useNativeDriver: true,
+  //   }).start();
+  // }, [animation, hidden]);
+
+    /**
+     * tension : 강도(기본값 40)
+     * friction: 감속(기본값 7)
+     * speed: 속도(기본값: 12)
+     * bounciness: 탄력성(기본값:8)
+     * tension / friction && speed / bounciness 조합으로 사용해야 하며, 다른 조합으로 사용 불가하다.
+     */
+    useEffect(() => {
+        Animated.spring(animation, {
+            toValue: hidden ? 1 : 0,
+            useNativeDriver: true,
+            tension: 75,
+            friction: 15,
+        }).start();
+    }, [animation, hidden]);
+
   return (
     <Animated.View
       style={[
