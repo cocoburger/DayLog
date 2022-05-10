@@ -1,7 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {SafeAreaView, StyleSheet, View} from 'react-native';
-import TransparentCircleButton from '../components/TransparentCircleButton';
+import TransparentCircleButton from './TransparentCircleButton';
 
 function WriteHeader() {
   const navigation = useNavigation();
