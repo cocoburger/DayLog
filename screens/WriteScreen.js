@@ -2,6 +2,7 @@ import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {Pressable, SafeAreaView, StyleSheet, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import TransparentCircleButton from '../components/TransparentCircleButton';
 
 function WriteScreen(props) {
   const navigation = useNavigation();
@@ -9,34 +10,23 @@ function WriteScreen(props) {
     navigation.pop();
   };
   return (
-      <SafeAreaView>
-          <View style={styles.block}>
-              <View style={styles.iconButtonWrapper}>
-                  <Pressable
-                      style={styles.iconButton}
-                      onPress={onGoBack}
-                      android_ripple={{color: '#ededed'}}>
-                      <Icon name="arrow-back" size={24} color="#424242" />
-                  </Pressable>
-              </View>
-              <View style={styles.buttons}>
-                  <View style={[styles.iconButtonWrapper, styles.marginRight]}>
-                      <Pressable
-                          style={styles.iconButton}
-                          android_ripple={{color: '#ededed'}}>
-                          <Icon name="delete-forever" size={24} color="#ef5350" />
-                      </Pressable>
-                  </View>
-                  <View style={styles.iconButtonWrapper}>
-                      <Pressable
-                          style={styles.iconButton}
-                          android_ripple={{color: '#ededed'}}>
-                          <Icon name="check" size={24} color="#009688" />
-                      </Pressable>
-                  </View>
-              </View>
-          </View>
-      </SafeAreaView>
+    <SafeAreaView>
+      <View style={styles.block}>
+        <TransparentCircleButton
+          onPress={onGoBack}
+          name="arrow-back"
+          color="#424242"
+        />
+        <View style={styles.buttons}>
+          <TransparentCircleButton
+            name="delete-forever"
+            color="#ef5350"
+            hasMarginRight
+          />
+          <TransparentCircleButton name="check" color="#009688" />
+        </View>
+      </View>
+    </SafeAreaView>
   );
 }
 
