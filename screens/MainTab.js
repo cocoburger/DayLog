@@ -2,6 +2,7 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {SearchScreen, CalendarScreen, FeedScreen} from './index';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import SearchHeader from '../components/SearchHeader';
 
 const Tab = createBottomTabNavigator();
 
@@ -34,9 +35,11 @@ function MainTab() {
         name="Search"
         component={SearchScreen}
         options={{
+          title: '검색',
           tabBarIcon: ({color, size}) => (
-            <Icon name="search" color={color} size={size} />
+            <Icon name="search" size={size} color={color} />
           ),
+          headerTitle: () => <SearchHeader />,
         }}
       />
     </Tab.Navigator>
