@@ -1,62 +1,21 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {Pressable, SafeAreaView, StyleSheet, View} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import {SafeAreaView, StyleSheet, View} from 'react-native';
 import TransparentCircleButton from '../components/TransparentCircleButton';
+import WriteHeader from './WriteHeader';
 
-function WriteScreen(props) {
-  const navigation = useNavigation();
-  const onGoBack = () => {
-    navigation.pop();
-  };
+function WriteScreen() {
   return (
     <SafeAreaView>
-      <View style={styles.block}>
-        <TransparentCircleButton
-          onPress={onGoBack}
-          name="arrow-back"
-          color="#424242"
-        />
-        <View style={styles.buttons}>
-          <TransparentCircleButton
-            name="delete-forever"
-            color="#ef5350"
-            hasMarginRight
-          />
-          <TransparentCircleButton name="check" color="#009688" />
-        </View>
-      </View>
+      <WriteHeader />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   block: {
-    height: 48,
-    paddingHorizontal: 8,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  iconButtonWrapper: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    overflow: 'hidden',
-  },
-  iconButton: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-  },
-  buttons: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  marginRight: {
-    marginRight: 8,
+    flex: 1,
+    backgroundColor: 'white',
   },
 });
 export default WriteScreen;
